@@ -7,12 +7,14 @@ const initialState = {
   user: null,
 };
 
+const REACT_APP_URL = process.env.REACT_APP_URL || "http://localhost:5000";
+
 export const registerUser = createAsyncThunk(
   "/auth/register",
 
   async (formData) => {
     const response = await axios.post(
-      "http://localhost:5000/api/auth/register",
+      `${REACT_APP_URL}/api/auth/register`,
       formData,
       {
         withCredentials: true,
@@ -28,7 +30,7 @@ export const loginUser = createAsyncThunk(
 
   async (formData) => {
     const response = await axios.post(
-      "http://localhost:5000/api/auth/login",
+      `${REACT_APP_URL}/api/auth/login`,
       formData,
       {
         withCredentials: true,
@@ -44,7 +46,7 @@ export const logoutUser = createAsyncThunk(
 
   async () => {
     const response = await axios.post(
-      "http://localhost:5000/api/auth/logout",
+      `${REACT_APP_URL}/api/auth/logout`,
       {},
       {
         withCredentials: true,
@@ -60,7 +62,7 @@ export const checkAuth = createAsyncThunk(
 
   async () => {
     const response = await axios.get(
-      "http://localhost:5000/api/auth/check-auth",
+      `${REACT_APP_URL}/api/auth/check-auth`,
       {
         withCredentials: true,
         headers: {

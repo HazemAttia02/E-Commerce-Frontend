@@ -6,11 +6,13 @@ const initialState = {
   searchResults: [],
 };
 
+const REACT_APP_URL = process.env.REACT_APP_URL || "http://localhost:5000";
+
 export const getSearchResults = createAsyncThunk(
   "/order/getSearchResults",
   async (keyword) => {
     const response = await axios.get(
-      `http://localhost:5000/api/shop/search/${keyword}`
+      `${REACT_APP_URL}/api/shop/search/${keyword}`
     );
 
     return response.data;

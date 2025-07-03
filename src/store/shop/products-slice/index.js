@@ -7,6 +7,8 @@ const initialState = {
   productDetails: null,
 };
 
+const REACT_APP_URL = process.env.REACT_APP_URL || "http://localhost:5000";
+
 export const fetchAllFilteredProducts = createAsyncThunk(
   "/products/fetchAllProducts",
   async ({ filterParams, sortParams }) => {
@@ -18,7 +20,7 @@ export const fetchAllFilteredProducts = createAsyncThunk(
     });
 
     const result = await axios.get(
-      `http://localhost:5000/api/shop/products/get?${query}`
+      `${REACT_APP_URL}/api/shop/products/get?${query}`
     );
 
     console.log(result);
@@ -31,7 +33,7 @@ export const fetchProductDetails = createAsyncThunk(
   "/products/fetchProductDetails",
   async (id) => {
     const result = await axios.get(
-      `http://localhost:5000/api/shop/products/get/${id}`
+      `${REACT_APP_URL}/api/shop/products/get/${id}`
     );
 
     return result?.data;
