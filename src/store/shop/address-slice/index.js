@@ -6,7 +6,7 @@ const initialState = {
   addressList: [],
 };
 
-const REACT_APP_URL = process.env.REACT_APP_URL || "http://localhost:5000";
+const REACT_APP_URL = "https://e-commerce-backend-dauf.onrender.com" || "http://localhost:5000";
 
 export const addNewAddress = createAsyncThunk(
   "/addresses/addNewAddress",
